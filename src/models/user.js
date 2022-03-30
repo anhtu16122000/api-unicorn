@@ -21,7 +21,6 @@ module.exports = (sequelize, DataTypes) => {
     userUserName:    DataTypes.STRING(100),
     userPhoneNumber: DataTypes.STRING(20),
     userPassword:    DataTypes.STRING(100),
-    refreshTokens:   DataTypes.TEXT,
     userBirthday:    DataTypes.DATEONLY
   }, {
     sequelize,

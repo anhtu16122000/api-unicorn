@@ -29,9 +29,6 @@ module.exports = {
       userBirthday: {
         type: Sequelize.DATEONLY
       },
-      refreshTokens: {
-        type: Sequelize.TEXT('long')
-      },
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,

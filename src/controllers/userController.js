@@ -28,7 +28,7 @@ class userController {
                     return request.status(400).json({
                         message: errorMessage,
                     })
-                let { userPassword, refreshTokens, userId, ...dataJWT } = dataUser
+                let { userPassword, userId, ...dataJWT } = dataUser.dataValues
 
                 const checkPassword = await bcrypt.compareSync(password, userPassword) 
                 if(checkPassword) {
@@ -64,7 +64,6 @@ class userController {
 
             })
             .catch( error => {
-                console.log('error', error)
                 return request.status(500).json(error)
             });
     }
@@ -75,7 +74,6 @@ class userController {
 
     // [POST] /refresh-token 
     refreshToken(req, res, next) {
-        console.log('req.cookies?.refreshToken', req.cookies?.refreshToken)
         const refreshToken   = req.body.refreshToken
         let refreshTokenSaved = req.cookies?.refreshToken // get list token saved
         if(!refreshToken) 

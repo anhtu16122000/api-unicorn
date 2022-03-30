@@ -20,13 +20,14 @@ export const createUser =  (data) => {
 export const getUser = (username) => {
     return new Promise( async (resolve, reject) => {
         try {
-            const { dataValues } = await model.User.findOne({
+            const data = await model.User.findOne({
                 where: {
                     userUserName: username
                 }
             })
-
-            resolve(dataValues)
+          
+            resolve(data)
+           
         } catch (err) {
             reject(err)
         }
