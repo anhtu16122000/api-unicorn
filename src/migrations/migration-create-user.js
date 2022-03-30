@@ -17,6 +17,7 @@ module.exports = {
       userUserName: {
         type: Sequelize.STRING(100),
         allowNull: false,
+        unique: true
       },
       userPhoneNumber: {
         type: Sequelize.STRING(20),
@@ -27,6 +28,9 @@ module.exports = {
       },
       userBirthday: {
         type: Sequelize.DATEONLY
+      },
+      refreshTokens: {
+        type: Sequelize.TEXT('long')
       },
       createdAt: {
         type: Sequelize.DATE,

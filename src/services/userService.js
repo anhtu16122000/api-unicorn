@@ -20,16 +20,31 @@ export const createUser =  (data) => {
 export const getUser = (username) => {
     return new Promise( async (resolve, reject) => {
         try {
-            const user = await model.User.findOne({
+            const { dataValues } = await model.User.findOne({
                 where: {
                     userUserName: username
                 }
             })
-            resolve(user)
+
+            resolve(dataValues)
         } catch (err) {
             reject(err)
         }
        
+    })  
+}
+export const update = (data, userId) => {
+    console.log('update', data)
+    return new Promise( async (resolve, reject) => {
+        try {
+            await model.User.update(data, {
+                where: {
+                    userId: userId 
+                }
+            })
+            resolve(data)
+        } catch (err) {
+            reject(err)
+        }
     })
-   
 }

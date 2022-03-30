@@ -6,7 +6,7 @@ const verifyAccount = (req, res, next) => {
     const headerAuth     = req.headers.authorization
     if(!headerAuth) 
         return res.status(401).json({ message: 'Bạn chưa đăng nhập' })
-
+    
     const accessToken    = headerAuth.split(' ')[1]
     
     jwt.verify(accessToken, process.env.ACCESS_SECRET_KEY, (error, dataDecoded) => {

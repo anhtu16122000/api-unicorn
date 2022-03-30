@@ -7,7 +7,7 @@ const { verifyAccount } = verify
 
 
 
-router.post('/create', userController.create)
+router.post('/register', userController.register)
 router.post('/login', userController.login)
 router.get('/get-info', verifyAccount, userController.getInfo)
 router.post('/refresh-token', userController.refreshToken)
